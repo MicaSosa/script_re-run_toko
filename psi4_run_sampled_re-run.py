@@ -43,7 +43,7 @@ for index in selected_indices:
         print(f"No está corrido {this_tag}_td.out\n")
         psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, output_folder=out_path)
     if f:
-        for line in f:
+        for i,line in enumerate(f):
             if "Excited State    8" in line:
                 break 
             elif i==(len(f)-1):
@@ -58,7 +58,7 @@ for index in selected_indices:
         print(f"No está corrido {this_tag}_td.out\n")
         psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_charges=imp_dat_path, output_folder=out_path)
     if f:
-        for line in f:
+        for i,line in enumerate(f):
             if "Excited State    8" in line:
                 break 
             elif i==(len(f)-1):
@@ -77,7 +77,7 @@ for index in selected_indices:
         eq_field_vec = get_equivalent_mean_electric_field(imp_positions, imp_charges, exp_positions)
         psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_field=eq_field_vec, output_folder=out_path)
    if f:
-        for line in f:
+        for i,line in enumerate(f):
             if "Excited State    8" in line:
                 break 
             elif i==(len(f)-1):
