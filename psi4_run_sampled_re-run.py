@@ -46,22 +46,23 @@ for index in selected_indices:
         for i,line in enumerate(f):
             if "Excited State    8" in line:
                 break 
-            elif i==(len(f)-1):
+            elif i==(len(lines)-1):
                 psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, output_folder=out_path)
 
 
-   # (with implicit charges)
+    # (with implicit charges)
     this_tag = "imp_" + out_tag
     try: 
         f = open(f"{this_tag}_td.out","r")
+        lines = f.readlines()
     except FileNotFoundError:
         print(f"No está corrido {this_tag}_td.out\n")
         psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_charges=imp_dat_path, output_folder=out_path)
     if f:
         for i,line in enumerate(f):
             if "Excited State    8" in line:
-                break 
-            elif i==(len(f)-1):
+                break
+            elif i==(len(lines)-1):
                 psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_charges=imp_dat_path, output_folder=out_path)
 
 
@@ -76,15 +77,15 @@ for index in selected_indices:
         exp_positions = load_positions_xyz(xyz_path)
         eq_field_vec = get_equivalent_mean_electric_field(imp_positions, imp_charges, exp_positions)
         psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_field=eq_field_vec, output_folder=out_path)
-   if f:
+    if f:
         for i,line in enumerate(f):
             if "Excited State    8" in line:
                 break 
-            elif i==(len(f)-1):
-        imp_positions, imp_charges = load_charges_dat(imp_dat_path)
-        exp_positions = load_positions_xyz(xyz_path)
-        eq_field_vec = get_equivalent_mean_electric_field(imp_positions, imp_charges, exp_positions)
-        psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_field=eq_field_vec, output_folder=out_path)
+            elif i==(len(lines)-1):
+                    imp_positions, imp_charges = load_charges_dat(imp_dat_path)
+                    exp_positions = load_positions_xyz(xyz_path)
+                    eq_field_vec = get_equivalent_mean_electric_field(imp_positions, imp_charges, exp_positions)
+                    psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_field=eq_field_vec, output_folder=out_path)
 
 ##############################
 #   Andrés Ignacio Bertoni   #
