@@ -26,7 +26,7 @@ nstates = 6
 if not os.path.exists(out_folder_path): os.mkdir(out_folder_path)
 
 selected_indices = np.loadtxt(selected_indices_path, dtype=int)
-for index in selected_indices:
+for index in selected_indices[2:3]:
     # (prepares paths)
     xyz_path = os.path.join(samples_folder, explicit_positions_filename.replace("$index$", str(index)))
     imp_dat_path = os.path.join(samples_folder, implicit_charges_filename.replace("$index$", str(index)))
@@ -34,6 +34,7 @@ for index in selected_indices:
     out_path = os.path.join(out_folder_path, f"{out_tag}_{index}")
     if not os.path.exists(out_path): os.mkdir(out_path)
     
+    f = False
 
     # (in vacuum)
     this_tag = "vac_" + out_tag
@@ -48,7 +49,7 @@ for index in selected_indices:
                 break 
             elif i==(len(lines)-1):
                 psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, output_folder=out_path)
-
+    f = False
 
     # (with implicit charges)
     this_tag = "imp_" + out_tag
@@ -65,7 +66,7 @@ for index in selected_indices:
             elif i==(len(lines)-1):
                 psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_charges=imp_dat_path, output_folder=out_path)
 
-
+    f = False
 
     # (with equivalent field)
     this_tag = "eqf_" + out_tag
