@@ -1,0 +1,121 @@
+
+******************************************************************************************
+**********                               WARNING                                **********
+**********       The names of excited state variables changed between 1.5       **********
+**********     and 1.6. For a quick solution, remove the symmetry specifier     **********
+**********   from the variable name. For full details, see 'Notes on Psivars'   **********
+**********                        in the documentation.                         **********
+******************************************************************************************
+
+
+
+         ---------------------------------------------------------
+                         TDSCF excitation energies                
+                 by Andrew M. James and Daniel G. A. Smith        
+         ---------------------------------------------------------
+
+  ==> Options <==
+
+     Residual threshold  : 1.0000e-04
+     Initial guess       : denominators
+     Reference           : RHF
+     Solver type         : RPA (Hamiltonian)
+
+
+  ==> Requested Excitations <==
+
+      6 singlet states with A symmetry
+
+
+  ==> Seeking the lowest 6 singlet states with A symmetry
+
+                        Generalized Hamiltonian Solver                       
+                              By Andrew M. James                             
+
+  ==> Options <==
+
+    Max number of iterations        = 60   
+    Eigenvector tolerance           = 1.0000e-04
+    Max number of expansion vectors = 1200 
+
+  => Iterations <=
+                              Max[D[value]]     Max[|R|]   # vectors
+  HamiltonianSolver iter   1:   8.21049e-02  2.94751e-02     24      
+  HamiltonianSolver iter   2:   7.78881e-04  1.62569e-02     36      
+  HamiltonianSolver iter   3:   5.84831e-04  5.18592e-02     48      
+  HamiltonianSolver iter   4:   1.89558e-03  2.33127e-02     60      
+  HamiltonianSolver iter   5:   2.30200e-04  7.91080e-03     72      
+  HamiltonianSolver iter   6:   2.50313e-05  2.89724e-03     80      
+  HamiltonianSolver iter   7:   2.57277e-06  8.76617e-04     84      
+  HamiltonianSolver iter   8:   2.32827e-07  3.09871e-04     88      
+  HamiltonianSolver iter   9:   2.82110e-08  1.03113e-04     92      
+  HamiltonianSolver iter  10:   3.31371e-09  5.97879e-05     94      Converged
+
+******************************************************************************************
+**********                               WARNING                                **********
+**********  Length-gauge rotatory strengths are **NOT** gauge-origin invariant  **********
+******************************************************************************************
+
+                                    Excitation Energy         Total Energy        Oscillator Strength             Rotatory Strength       
+     #   Sym: GS->ES (Trans)        au              eV              au          au (length)    au (velocity)    au (length)    au (velocity) 
+    ---- -------------------- --------------- --------------- --------------- --------------- --------------- --------------- ---------------
+     1        A->A (1 A)       0.01770         0.48177        -3019.87671      0.0001          0.0001         -0.0003         -0.0001        
+     2        A->A (1 A)       0.03144         0.85548        -3019.86297      0.0000          0.0000         -0.0000          0.0002        
+     3        A->A (1 A)       0.05951         1.61930        -3019.83490      0.0058          0.0058         -0.0155         -0.0058        
+     4        A->A (1 A)       0.07523         2.04710        -3019.81918      2.1059          2.0550         -0.1656         -0.0574        
+     5        A->A (1 A)       0.07861         2.13907        -3019.81580      0.3760          0.3678          0.1063          0.0430        
+     6        A->A (1 A)       0.07911         2.15268        -3019.81530      0.0006          0.0006          0.0026          0.0007        
+
+
+
+Contributing excitations and de-excitations
+Only contributions with coefficients > 1.00e-01 will be printed:
+
+Excited State    1 (1 A):   0.01770 au   2573.53 nm f = 0.0001
+  Sums of squares: Xssq =  1.000011e+00; Yssq =  1.077690e-05; Xssq - Yssq =  1.000000e+00
+    200 -> 201    0.996267 (99.255%)
+
+Excited State    2 (1 A):   0.03144 au   1449.29 nm f = 0.0000
+  Sums of squares: Xssq =  1.000008e+00; Yssq =  7.758091e-06; Xssq - Yssq =  1.000000e+00
+    199 -> 201   -0.997464 (99.493%)
+
+Excited State    3 (1 A):   0.05951 au   765.66 nm f = 0.0058
+  Sums of squares: Xssq =  1.000047e+00; Yssq =  4.716129e-05; Xssq - Yssq =  1.000000e+00
+    198 -> 201    0.994404 (98.884%)
+
+Excited State    4 (1 A):   0.07523 au   605.66 nm f = 2.1059
+  Sums of squares: Xssq =  1.008387e+00; Yssq =  8.386879e-03; Xssq - Yssq =  1.000000e+00
+    186 -> 201    0.124189 ( 1.542%)
+    187 -> 204   -0.129172 ( 1.669%)
+    191 -> 201   -0.267444 ( 7.153%)
+    192 -> 201   -0.343962 (11.831%)
+    193 -> 201    0.672620 (45.242%)
+    194 -> 201    0.279970 ( 7.838%)
+    195 -> 201   -0.109762 ( 1.205%)
+    197 -> 201   -0.408069 (16.652%)
+
+Excited State    5 (1 A):   0.07861 au   579.62 nm f = 0.3760
+  Sums of squares: Xssq =  1.001541e+00; Yssq =  1.540793e-03; Xssq - Yssq =  1.000000e+00
+    191 -> 201    0.117570 ( 1.382%)
+    192 -> 201    0.164563 ( 2.708%)
+    193 -> 201   -0.298029 ( 8.882%)
+    194 -> 201   -0.109975 ( 1.209%)
+    195 -> 201    0.108690 ( 1.181%)
+    197 -> 201   -0.906111 (82.104%)
+
+Excited State    6 (1 A):   0.07911 au   575.95 nm f = 0.0006
+  Sums of squares: Xssq =  1.000017e+00; Yssq =  1.686866e-05; Xssq - Yssq =  1.000000e+00
+    196 -> 201    0.994211 (98.846%)
+
+
+******************************************************************************************
+**********                               WARNING                                **********
+**********       The names of excited state variables changed between 1.5       **********
+**********     and 1.6. For a quick solution, remove the symmetry specifier     **********
+**********   from the variable name. For full details, see 'Notes on Psivars'   **********
+**********                        in the documentation.                         **********
+******************************************************************************************
+
+
+  Memory set to 186.265 GiB by Python driver.
+  Threads set to 32 by Python driver.
