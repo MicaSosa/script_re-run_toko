@@ -1,0 +1,23 @@
+#!/bin/bash
+
+## Dos numerales para comentar.
+## Un numeral para pasarle parametros a SLURM
+
+#SBATCH --nodelist=toko07
+#SBATCH --nodes=1
+#SBATCH --ntasks=16
+#SBATCH --ntasks-per-node=16
+#SBATCH --partition=Large
+#SBATCH --time=3-00:00:00
+#SBATCH -J 1.7V_imp
+
+
+# . Declare the necessary environment
+#
+
+export PSI_SCRATCH=/scratch/$SLURM_JOB_USER/psi4_scratch
+source ~/.bashrc
+conda activate p4env
+# . Run
+python3 $SLURM_SUBMIT_DIR/psi4_run_sampled.py
+

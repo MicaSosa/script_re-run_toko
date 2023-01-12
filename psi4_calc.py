@@ -20,13 +20,21 @@ def load_geometry(xyz_file, append_lines=[]):
     return molecule
 
 def prepare_charge_field(external_charges):
+<<<<<<< HEAD
     if type(external_charges) not in [list, np.ndarray]: #pregunta si external_charges es una lista o np.array. Si no, lo levanta. Si está, lo vuelve array.
+=======
+    if type(external_charges) not in [list, np.ndarray]:
+>>>>>>> b7ff201e6b0ef274e1534ccdfb660afb7a0c7381
         external_charges = np.loadtxt(external_charges)
     else: external_charges = np.array(external_charges)
     x,y,z,q = external_charges.T
     positions_angstrom = np.vstack([x,y,z])
     positions_bohr = positions_angstrom / psi4.constants.bohr2angstroms
+<<<<<<< HEAD
     charge_field = np.vstack([q, positions_bohr]).T  #¿ La cargas primero???? q,x,y,z.... en lugar de x,y,z,q??????
+=======
+    charge_field = np.vstack([q, positions_bohr]).T
+>>>>>>> b7ff201e6b0ef274e1534ccdfb660afb7a0c7381
     return charge_field
 
 def read_charge_mult(xyz_path):
@@ -60,7 +68,11 @@ def psi4_calc(xyz_path, functional, basis_set, td_n_states=0, max_ram="1 GB", ma
     print(f"Setting all up for {out_tag}...")
     psi4.set_memory(max_ram)
     psi4.core.set_num_threads(max_thr)
+<<<<<<< HEAD
     set scf_type direct
+=======
+    psi4.set_options({"scf_type":"df"})
+>>>>>>> b7ff201e6b0ef274e1534ccdfb660afb7a0c7381
     # (lr-td)
     if td_n_states > 0:
         psi4.set_options({"save_jk":True})
