@@ -46,13 +46,13 @@ for index in selected_indices:
         print(f"Si ha corrido vacuum")
     except FileNotFoundError:
         print(f"No está corrido vacuum")
-        psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_charges=imp_dat_path, output_folder=out_path)
+        psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, output_folder=out_path)
     if content.find("Excited State    6") != -1:
         print("Y ha terminado completamente")
         
     else:
         print("No terminó todo, correrá ahora")
-        psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, external_charges=imp_dat_path, output_folder=out_path)
+        psi4_calc(xyz_path, functional, basis_set, nstates, max_ram, max_thr, optimize=False, out_tag=this_tag, output_folder=out_path)
 
 
     # (with implicit charges)
