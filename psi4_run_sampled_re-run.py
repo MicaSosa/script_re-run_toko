@@ -38,6 +38,7 @@ for index in selected_indices:
 
     # (in vacuum)
     f = False
+    content = "o"
     this_tag = "vac_" + out_tag
     out_file_path = os.path.join(out_path,f"{this_tag}_td.out")
     try: 
@@ -57,6 +58,7 @@ for index in selected_indices:
 
     # (with implicit charges)
     f = False
+    contente= "o"
     this_tag = "imp_" + out_tag
     out_file_path = os.path.join(out_path,f"{this_tag}_td.out")
     try: 
@@ -76,6 +78,7 @@ for index in selected_indices:
 """
     # (with equivalent field)
     f = False
+    contente= "o"
     this_tag = "eqf_" + out_tag
     out_file_path = os.path.join(out_path,f"{this_tag}_td.out")
     try: 
